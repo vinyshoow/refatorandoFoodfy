@@ -1,76 +1,79 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.njk" %}
+
+{% block head %}
   <link rel="stylesheet" href="/page-recipes/styles.css">
   <title>Foodfy - RECEITAS</title>
-</head>
-<body>
-  <div class="content">
-    <header>
-      <div class="logo">
-        <a href="/">          
-          <img src="../assets/logo.png" alt="Foodfy">
-        </a>
+{% endblock head %}
+
+{% block logo %}
+  <div class="logo">
+    <a href="/">
+      <img src="../assets/logo.png" alt="Foodfy">
+    </a>
+  </div>
+{% endblock logo %}
+
+{% block links %}
+  <div class="links">
+    <a href="/about">Sobre</a>
+    <a>
+      <strong>Receitas</strong>
+    </a>
+  </div>
+{% endblock links %}
+
+{% block content %}
+
+  <section class="cards">
+    <div class="card-recipe" id="{{recipe.id}}">
+      <div class="card_image-container">
+        <img src="{{recipe.image}}" alt="{{recipe.title}}">
       </div>
 
-      <div class="links">
-        <a href="/about">Sobre</a>
-        <a><strong>Receitas</strong></a>
+      <div class="card_content recipes">
+        <p>{{recipe.title}}</p>
       </div>
-    </header>
 
-    <section class="cards">
-      <div class="card-recipe" id="{{recipe.id}}">
-          <div class="card_image-container">
-            <img src="{{recipe.image}}" alt="{{recipe.title}}">
-          </div>
-    
-          <div class="card_content recipes">
-            <p>{{recipe.title}}</p>
-          </div>
-          
-          <div class="card_info recipes">
-            <p>por {{recipe.author}}</p>
-          </div>
+      <div class="card_info recipes">
+        <p>por
+          {{recipe.author}}</p>
+      </div>
 
-          <div class="card-ingredients">
-            <a onclick="showHideIng()" class="showHideIng">ESCONDER</a>
-            <h1>Ingredientes</h1>
-            <ul class="" id="showHideIng">
-            {%for ingredient in recipe.ingredients%}
-              <li>{{ingredient}};</li>
-            {% endfor %}
-            
-            </ul>
-          </div>
+      <div class="card-ingredients">
+        <a onclick="showHideIng()" class="showHideIng">ESCONDER</a>
+        <h1>Ingredientes</h1>
+        <ul class="" id="showHideIng">
+          {%for ingredient in recipe.ingredients%}
+            <li>{{ingredient}};</li>
+          {% endfor %}
 
-          <div class="card-preparation">
-            <h1>Modo de preparo</h1>
-            <a onclick="showHidePrep()" class="showHidePrep">ESCONDER</a>
-            {# <p id="showHidePrep">{{recipe.preparation}}</p> #}
-            <ul id="showHidePrep">
-              {%for prep in recipe.preparation%}
-                <li>{{prep}};</li>
-              {% endfor %}
-            </ul>
-        
-          </div>
+        </ul>
+      </div>
 
-          <div class="card-information">
-            <h1>Informações adicionais</h1>
-            <a onclick="showHideInfo()" class="showHideInfo">ESCONDER</a>
-            <p id="showHideInfo">{{recipe.information}}</p>
-          </div>
-        </div>
-              
-    </section>
-  </div>
-  <div class="footer">
-    <p>Todos os direitos reservados, receitas Foodfy.</p>
-  </div>
+      <div class="card-preparation">
+        <h1>Modo de preparo</h1>
+        <a onclick="showHidePrep()" class="showHidePrep">ESCONDER</a>
+        {# <p id="showHidePrep">{{recipe.preparation}}</p> #}
+        <ul id="showHidePrep">
+          {%for prep in recipe.preparation%}
+            <li>{{prep}};</li>
+          {% endfor %}
+        </ul>
 
-  <script src="/js/scripts.js"></script>
-</body>
-</html>
+      </div>
+
+      <div class="card-information">
+        <h1>Informações adicionais</h1>
+        <a onclick="showHideInfo()" class="showHideInfo">ESCONDER</a>
+        <p id="showHideInfo">{{recipe.information}}</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+<div class="footer">
+  <p>Todos os direitos reservados, receitas Foodfy.</p>
+</div>
+
+<script src="/js/scripts.js"></script>
+{% endblock content %}
