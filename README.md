@@ -18,8 +18,8 @@
 
 ## :mortar_board:  O que foi aprendido neste Desafio ?  
 
-Como utilizar os conceitos aprendidos nas aulas, de forma clara e objetiva, criando um layout moderno de forma simples e rápida.
-Foi utilizado um conceito de innerHTML para informar dados de um campo para o outro dentro do modal.
+Refarotamos o projeto Foodfy, instalando o Node.js, configurando o servidor back-end e trabalhando com dados dinâmicos com a template engine Nunjucks.
+Trabalhamos conceitos no JS de como mostrar/esconder algum container e alguns conceitos do req.params.
 
 ## :sunglasses: Como rodar os arquivos das aulas ?
 
